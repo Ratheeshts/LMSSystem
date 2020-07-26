@@ -1,0 +1,91 @@
+        {% load static %} 
+
+        <!-- JAVASCRIPT -->
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+        <!-- jQuery validate-->
+<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+
+
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+        <script src="{% static 'js/tree.min.js' %}"></script>
+        <link href="{% static 'js/select2.min.js' %}" rel="stylesheet"></link>
+        <!-- Mobile Detect -->
+        <script type="text/javascript" src="{% static 'js/jquery-ui.custom.min.js' %}"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script type="text/javascript"
+                src="{% static 'js/jquery.ui.touch-punch.min.js' %}"></script>
+
+        <!-- Popper.js -->
+        <script type="text/javascript" src="{% static 'js/ace-elements.min.js' %}"></script>
+
+        <!-- Bootstrap -->
+        <script type="text/javascript" src="{% static 'js/ace.min.js' %}"></script>
+
+        <!-- Nvd3 - D3 Charts -->
+        <script type="text/javascript" src="{% static 'vendor/d3/d3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/nvd3/build/nv.d3.min.js' %}"></script>
+
+        <!-- Data tables -->
+        <script type="text/javascript" src="{% static 'vendor/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+
+        <script type="text/javascript"
+                src="{% static 'vendor/datatables-responsive/js/dataTables.responsive.js' %}"></script>
+
+        <!-- PNotify -->
+        <script type="text/javascript" src="{% static 'vendor/pnotify/pnotify.custom.min.js' %}"></script>
+        <!---Sweet alert---->
+        <script type="text/javascript" src="{% static 'vendor/sweet-alert/sweetalert.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/sweet-alert/sweetalert.min.js' %}"></script>
+        <!-- raz Html -->
+        <script type="text/javascript" src="{% static 'vendor/raz-html/raz-html.min.js' %}"></script>
+        <!-- Cropper JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/cropper.js' %}"></script>
+        <!-- Main JS -->
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    
+		<script src="{% static 'js/jquery.raty.min.js' %}"></script>
+	<script type="text/javascript">
+			jQuery(function($){
+			 
+			
+				$('.rating').raty({
+					'cancel' : true,
+					'half': true,
+					'starType' : 'i'
+					
+				});//.find('i:not(.star-raty)').addClass('grey');
+				
+				
+			
+            
+			
+				
+		
+        
+			
+		
+					
+					
+				///////////////
+				
+				
+				//in ajax mode, remove remaining elements before leaving page
+				$(document).one('ajaxloadstart.page', function(e) {
+					$('.rating').raty('destroy');
+					$('.multiselect').multiselect('destroy');
+				});
+			
+			});
+
+
+                        
+		</script>

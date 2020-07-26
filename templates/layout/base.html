@@ -1,0 +1,451 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/logos/leadslogo.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/logos/leadslogo.png' %}">
+    <title>
+    {% block page_title %}
+    {{ page_title|default:"Leadstracer" }}
+
+    {% endblock page_title %}
+    </title>
+      {% block css_block %}
+        <!-- STYLESHEETS -->
+        <style type="text/css">
+            [raz-cloak],
+            .raz-cloak {
+                display: none !important;
+            }
+        </style>
+        <!-- Icons.css -->
+        <link type="text/css" rel="stylesheet" href="{% static 'icons/raz-icon-font/style.css' %}">
+        <!--bootstrap date renge picker-->
+        <link type="text/css"  rel="stylesheet" href="{% static 'vendor/form-daterangepicker/daterangepicker-bs3.css' %}">
+        <!-- Animate.css -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/animate.css/animate.min.css' %}">
+        <!-- PNotify -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/pnotify/pnotify.custom.min.css' %}">
+        <!-- Nvd3 - D3 Charts -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/nvd3/build/nv.d3.min.css' %}"/>
+        <!-- Perfect Scrollbar -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/perfect-scrollbar/css/perfect-scrollbar.min.css' %}"/>
+        <!-- raz Html -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/raz-html/raz-html.min.css' %}"/>
+        <!-- Main CSS -->
+        <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link href="{% static 'vendor/slim-select/slimselect.min.css' %}" rel="stylesheet"></link>
+        <!-- / STYLESHEETS -->
+        {% endblock css_block %}
+
+        <!-- JAVASCRIPT -->
+        <!-- jQuery -->
+        {% block js_block %}
+
+        <script type="text/javascript" src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+        <!-- Mobile Detect -->
+        <script type="text/javascript" src="{% static 'vendor/mobile-detect/mobile-detect.min.js' %}"></script>
+       <!-- Perfect Scrollbar -->
+        <script type="text/javascript"
+                src="{% static 'vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js' %}"></script>
+        <!-- Popper.js -->
+        <script type="text/javascript" src="{% static 'vendor/popper.js/index.js' %}"></script>
+        <!-- Bootstrap -->
+        <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+        <!-- Nvd3 - D3 Charts -->
+        <script type="text/javascript" src="{% static 'vendor/d3/d3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/nvd3/build/nv.d3.min.js' %}"></script>
+        <!-- Data tables -->
+        <script type="text/javascript" src="{% static 'vendor/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'vendor/datatables-responsive/js/dataTables.responsive.js' %}"></script>
+        <!-- PNotify -->
+        <script type="text/javascript" src="{% static 'vendor/pnotify/pnotify.custom.min.js' %}"></script>
+        <!--moment-->
+       <script type="text/javascript" src="{% static 'vendor/form-daterangepicker/moment.min.js' %}"></script> 
+       <!--form date-range picker-->
+       <script type="text/javascript" src="{% static 'vendor/form-daterangepicker/daterangepicker.js' %}"></script>
+       <!--bootstrap date picker-->
+       <script type="text/javascript" src="{% static 'vendor/bootstrap-datepicker/bootstrap-datepicker.js' %}"></script>
+        <!--bootstrap time picker-->
+        <script type="text/javascript" src="{% static 'vendor/bootstrap-timepicker/bootstrap-timepicker.js' %}"></script> 
+        <!--slim select-->
+        <!-- raz Html -->
+        <script src="{% static 'vendor/slim-select/slimselect.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/raz-html/raz-html.min.js' %}"></script>
+        <!-- Main JS -->
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+        <!-- / JAVASCRIPT -->
+        {% endblock js_block %}
+    </head>
+    <body class="layout layout-vertical layout-left-navigation layout-below-toolbar">
+        <div id="wrapper">
+            <!---Menu Block on here-->
+            {% include "layout/menu.html" %}
+
+            <div class="content-wrapper">
+
+                <nav id="toolbar" class="fixed-top bg-white">
+                    
+                    <div class="row no-gutters align-items-center flex-nowrap">
+                        
+                        <div class="col">
+
+                            <div class="row no-gutters align-items-center flex-nowrap">
+        
+                                <button type="button" class="toggle-aside-button btn btn-icon d-block d-lg-none"
+                                        data-raz-bar-toggle="aside">
+                                    <i class="icon icon-menu"></i>
+                                </button>
+        
+                                <div class="toolbar-separator d-block d-lg-none"></div>
+        
+                                <div class="shortcuts-wrapper row no-gutters align-items-center px-0 px-sm-2">
+        
+                                    <div class="shortcuts row no-gutters align-items-center d-none d-md-flex">
+        
+                                        <a href="" data-toggle="tooltip" title="Location"class="shortcut-button btn btn-icon mx-1">
+                                            <i class="icon icon-map-marker-radius"></i>
+                                        </a>
+        
+                                        <a href="URL::route('MyProfile')"  data-toggle="tooltip" title="Profile" class="shortcut-button btn btn-icon mx-1">
+                                            <i class="icon icon-account-box"></i>
+                                        </a>
+                                       
+                                            <a class="shortcut-button btn btn-icon mx-1" href="URL::route('CreateLead')" data-toggle="tooltip" title="Add New Customer"><i class="icon icon-account-plus"></i></a>
+                                    
+                                            <a class="shortcut-button btn btn-icon mx-1" href="URL::route('CreateSeriviceCall')" data-toggle="tooltip" title="Add New ServiceCall"><i class="icon icon-wrench"></i></a>
+                                        
+                                            <a class="shortcut-button btn btn-icon mx-1" href="URL::route('SeriviceCallSchedule')" data-toggle="tooltip" title="ServiceCall Scheduler"><i class="icon icon-account-location"></i></a>
+                                        
+                                            <a  href="URL::route('Sales')"class="shortcut-button btn btn-icon mx-1" data-toggle="tooltip" title="Add  SalesCall"><i class="icon icon-clipboard-plus"></i></a>
+
+                                            <a href="URL::Route('Settings')" data-toggle="tooltip" title="Settings" class="shortcut-button btn btn-icon mx-1">
+                                                <i class="icon icon-settings"></i>
+            
+                                            </a>
+                                            <a href=" url()->previous()" data-toggle="tooltip" title="Go Back" class="shortcut-button btn btn-icon mx-1">
+                                                <i class="icon icon-arrow-left"></i>
+                                            </a>
+                                           
+        
+                                    </div>
+        
+                                </div>
+        
+                                <div class="toolbar-separator"></div>
+                                <a href=" url()->previous()" data-toggle="tooltip" title="Parts Requested" class="shortcut-button btn btn-icon mx-1">
+                                     <span class="followup-count bg-danger text-auto ml-2">48</span></small>
+                                </a>
+                                <a href=" url()->previous()" data-toggle="tooltip" title="TA Requested" class="shortcut-button btn btn-icon mx-1">
+                                    <span class="followup-count bg-warning text-auto ml-2">22</span></small>
+                               </a>
+                               <a href=" url()->previous()" data-toggle="tooltip" title="Staff Online" class="shortcut-button btn btn-icon mx-1">
+                                <span class="followup-count bg-primary text-auto ml-2">22</span></small>
+                           </a>
+        
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+
+                            <div class="row no-gutters align-items-center justify-content-end">
+
+                                <div class="user-menu-button dropdown">
+
+                                    <div class="dropdown-toggle ripple row align-items-center no-gutters px-2 px-sm-4"
+                                            role="button"
+                                            id="dropdownUserMenu"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="avatar-wrapper">
+                                            <img class="avatar" src="{% static 'images/avatars/profile.jpg' %}">
+                                            <i class="status text-green icon-checkbox-marked-circle s-4"></i>
+                                        </div>
+                                        <span class="username mx-3 d-none d-md-block">Admin</span>
+                                    </div>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
+
+                                        <a class="dropdown-item" href="staff_profile.html">
+                                            <div class="row no-gutters align-items-center flex-nowrap">
+                                                <i class="icon-account"></i>
+                                                <span class="px-3">My Profile</span>
+                                            </div>
+                                        </a>
+
+                                        <div class="dropdown-divider"></div>
+
+                                        <a class="dropdown-item" href="#">
+                                            <div class="row no-gutters align-items-center flex-nowrap">
+                                                <i class="icon-logout"></i>
+                                                <span class="px-3">Logout</span>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="toolbar-separator"></div>
+
+                                <button type="button" class="search-button btn btn-icon">
+                                    <i class="icon icon-magnify"></i>
+                                </button>
+                                
+                                <div class="toolbar-separator"></div>
+
+                                <button type="button" class="quick-panel-button btn btn-icon"
+                                        data-raz-bar-toggle="quick-panel-sidebar">
+                                    <i class="icon icon-format-list-bulleted"></i>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="content">
+                {% block content %}
+                <p>Here content. comes</p>
+                {% endblock content %}
+</div>
+
+                </div>
+
+            </div>
+
+            <div class="quick-panel-sidebar custom-scrollbar raz-bar position-right ps ps--theme_default raz-bar-open ps--active-y" raz-cloak data-raz-bar="quick-panel-sidebar"
+            data-raz-bar-position="right">
+           <div class="list-group" class="date">
+
+               <div class="list-group-item subheader">TODAY</div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="text-muted">
+
+                       <div class="h1"> Monday</div>
+
+                       <div class="h2 row no-gutters align-items-start">
+                           <span> 12</span>
+                           <span class="h6">th</span>
+                           <span> Jun</span>
+                       </div>
+
+                   </div>
+               </div>
+           </div>
+
+           <div class="divider"></div>
+
+           <div class="list-group">
+
+               <div class="list-group-item subheader">Todays Activities</div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Group Meeting</h3>
+
+                       <p>In 32 Minutes, Room 1B</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Meeting with Client name</h3>
+
+                       <p>11:00 PM</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Meeting with David</h3>
+
+                       <p>At Location, 17:30 PM</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Q&A Session</h3>
+
+                       <p>20:30 PM</p>
+                   </div>
+
+               </div>
+
+           </div>
+
+           <div class="divider"></div>
+
+           <div class="list-group">
+
+               <div class="list-group-item subheader">Notifications</div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Best songs to listen while working</h3>
+
+                       <p>At Location, 17:30 PM</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Useful subreddits</h3>
+
+                       <p>At Location, 17:30 PM</p>
+                   </div>
+
+               </div>
+
+           </div>
+
+           <div class="divider"></div>
+
+       
+       </div>
+       <!--edit sales calls modal starts-->
+       <div id="edit-sales-call" class="modal fade" tabindex="-1" role="dialog"
+       aria-labelledby="myLargeModalLabel"
+       aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+  
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myLargeModalLabel">Sales Call</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class=" col-md-6 pt-4">
+                                <label for="" class="col-form-label text-muted">Machine Model</label>
+                                <select id="slim-multiple-sidebar7" >
+                                        <option>AL485DG1</option>
+                                        <option>AL485TADG3</option>
+                                        <option>AL485TADG4</option>
+                                        <option>AL4CTDG1</option>
+                                        <option>AL4CTDG2</option>
+                                        <option>AL4CTDG3</option>
+                                        <option>AL6DTIG1</option>
+                                        <option>AL6DTIG2</option>
+                                </select>
+                            </div>
+                            <div class=" col-md-6 pt-4">
+                                <label for="" class="col-form-label text-muted">Customer name</label>
+                                <select id="slim-multiple-sidebar8" >
+                                        <option>Alice Freeman</option>
+                                        <option>Garry Newman</option>
+                                        <option>Andrew Green</option>
+                                        <option>Carl Henderson </option>
+                                        <option>Jane Dean </option>
+                                        <option>John Deo</option>
+                                        <option>Juan Carpenter</option>
+                                        <option>Vincent Munoz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="inputWebsite" class="col-form-label">Business Type</label>
+                                <select class="form-control">
+                                    <option>Hot</option>
+                                    <option>Warm</option>
+                                    <option>Cold</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="" class="col-form-label">Order Value</label>
+                                <input type="text" class="form-control" id="" value="100000"/>
+                            </div>
+                        </div>
+                        
+                        <h6 class="title mt-2">Followup Details</h6>
+                        <div class="form-group">
+                                <label for="exampleTextarea">Comment</label>
+                                <textarea class="form-control" id="AddressTextarea" rows="2" placeholder=""></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="inputWebsite" class="col-form-label">Status</label>
+                                <select class="form-control">
+                                    <option>Live</option>
+                                    <option>Postponed</option>
+                                    <option>Dropped</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputWebsite" class="col-form-label">Followup type</label>
+                                <select class="form-control">
+                                    <option>Direct</option>
+                                    <option>By Phone</option>
+                                    <option>By Email</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="" class="col-form-label">Date</label>
+                                <input type="text" class="form-control datepicker" id="" value=""/>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="" class="col-form-label">Next followup date</label>
+                                <input type="text" class="form-control datepicker" id="" value=""/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="inputWebsite" class="col-form-label">Start Location</label>
+                                <input type="text" class="form-control" id="" value=""/>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputWebsite" class="col-form-label">End Location</label>
+                                <input type="text" class="form-control" id="" value=""/>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="" class="col-form-label">Distance</label>
+                                <input type="text" class="form-control" id="" value=""/>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="" class="col-form-label">Expense</label>
+                                <input type="text" class="form-control" id="" value=""/>
+                            </div>
+                        </div>
+                    </form>
+              </div>
+              <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+          </div>
+      </div>
+  </div>
+       <!--edit sales calls modal ends here-->
+
+        </div>
+
+    </body>
+    {% block end_js_block %}
+    
+    {% endblock end_js_block %}
+
+</html>

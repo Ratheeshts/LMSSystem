@@ -1,0 +1,108 @@
+
+
+<div>
+
+
+											<div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="row"><div class="col-xs-6"><div class="dataTables_length" id="dynamic-table_length">
+                                              
+                                            
+                                            <label>Display <select name="dynamic-table_length" aria-controls="dynamic-table" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> records</label></div></div>
+                                             
+                                            <div class="col-xs-6">
+                                            <div id="dynamic-table_filter" class="dataTables_filter">
+											             <form id="upload_excel_form" action="ajax_excel_file_upload" enctype="multipart/form-data">
+                                                                        {% csrf_token %}
+																		<div id ="fileToUpload"></div>
+  											<input type="hidden" id="app_name" value="{{ app_name }}">
+                                            <input type="hidden" id="model_name" value="{{ model_name }}">
+                                             <span><label>upload excel</label><input type="file"  id="excel_file_input" name="excel_upload"/></span>
+<button  type="button" id="excel_uplod_button" class="btn btn-white btn-info btn-bold">
+		 										<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
+												Upload
+											</button>   
+											 </form>                                       </div></div></div>
+                                            
+                                            <table id="dynamic-table" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dynamic-table_info">
+                                                                                  
+                                   
+                                  
+                                
+												<thead>
+													<tr role="row"><th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Domain: activate to sort column ascending">LMID</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Domain: activate to sort column ascending">Topic</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Title</th>
+                                                    <th class="hidden-480 sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Clicks: activate to sort column ascending">Structure</th>
+                                                    <th class="hidden-480 sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">LR_Type</th>
+                                                        <th class="hidden-480 sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Intractive_Type</th>
+                                                       
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="										
+															Update
+														: activate to sort column descending" aria-sort="ascending">
+															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+															Intractive_Level
+														</th>
+                                                        
+                                                         <th class="hidden-480 sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Difficulty</th>
+                                                         <th class="hidden-480 sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Link</th>
+                                                         </tr>
+												</thead>
+
+												<tbody>
+						
+{% for ModelObj in page %}
+
+													
+												<tr role="row" class="odd">
+													<td>
+															<a href="#">{{ModelObj.LMID}}</a>
+														</td>
+													<td>
+															<a href="#">{{ModelObj.Topic}}</a>
+														</td>
+
+														<td>
+															<a href="#">{{ModelObj.Title}}</a>
+														</td>
+														<td>{{ModelObj.Structure}}</td>
+														<td class="hidden-480">{{ModelObj.LR_Type}}</td>
+														<td class="sorting_1">{{ModelObj.Intractive_Type}}</td>
+
+														<td class="hidden-480">
+															<span class="label label-sm label-success">{{ModelObj.Intractive_Level}}</span>
+														</td>
+<td>
+															<a href="#">{{ModelObj.Difficulty}}</a>
+														</td>
+											<td>
+															<a href="{{ModelObj.Link}}">{{ModelObj.Link}}</a>
+														</td>			
+													</tr>
+                                                    {% endfor %}
+                                                    </tbody>
+											</table><div class="row"><div class="col-xs-6"><div class="dataTables_info" id="dynamic-table_info" role="status" aria-live="polite">Showing 1 to 10 of 23 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_simple_numbers" id="dynamic-table_paginate">
+											                                        {% if page.has_other_pages %}
+  <ul class="pagination">
+    {% if page.has_previous %}
+      <li><a href="?page={{ page.previous_page_number }}{% if search_string  %}&&search_string={{search_string}}{% endif %}
+">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in page.paginator.page_range %}
+      {% if page.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}{% if search_string  %}&&search_string={{search_string}}{% endif %}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page.has_next %}
+      <li><a href="?page={{ page.next_page_number }}{% if search_string  %}&&search_string={{search_string}}{% endif %}
+">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+											
+										</div></div></div></div>
+										</div>

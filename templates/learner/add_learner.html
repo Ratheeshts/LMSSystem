@@ -1,0 +1,36 @@
+{% extends 'layout/base_layout.html' %}
+{% load static %} 
+{% block content %}
+
+<form  id="add_learner" action="add_learner" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">  {{ field.label_tag }}  </label>
+
+										<div class="col-sm-9">
+                                        {{field}}
+										</div>
+									</div>
+                 {% endfor %}
+				  {% for field in lsf %}
+    <div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">  {{ field.label_tag }}  </label>
+
+										<div class="col-sm-9">
+                                        {{field}}
+										</div>
+									</div>
+                 {% endfor %}
+                             <div class="form-group">
+	<label class="col-sm-3 control-label no-padding-right" for="form-field-1">  </label>
+
+										<div class="col-sm-9">
+                                            <input type="submit" value="Submit" class="col-xs-10 col-sm-5">
+										</div>
+									</div>     
+  
+
+</form>
+{% endblock content %}
+    

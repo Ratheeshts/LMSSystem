@@ -1,0 +1,19 @@
+  <div class=" col-md-4 pt-4">
+                                                          
+                                                        <label for="" class="col-form-label text-muted">     {{ form.product_category.label_tag }} </label>
+                                                        {{ form.product_category }}
+                                                       <div class="ss-5937 ss-main" style="">
+                                                       <div class="ss-single-selected">
+     
+                                                       <span class="ss-deselect ss-hide">X</span>
+                                                       <span class="ss-arrow"><span class="arrow-down">
+                                                       </span></span></div><div class="ss-content">
+                                                       <div class="ss-search">
+                                                       <input type="search" placeholder="Search" tabindex="0"></div><div class="ss-list">
+                                                       
+                                                        {% for x, y in form.fields.product_category.choices %}
+                                                       <div class="ss-option" data-id="11903311">{{ x }}</div>
+                                                  {% endfor %}
+                                                       </div>
+                                                       </div></div>
+                                                    </div>

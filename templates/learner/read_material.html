@@ -1,0 +1,93 @@
+{% extends 'layout/base_layout.html' %}
+{% load static %} 
+{% block content %}
+
+    <div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="#">Home</a>
+							</li>
+
+						
+							<li class="active">Learning Materials</li>
+						</ul><!-- /.breadcrumb -->
+
+					</div>
+
+		
+						<iframe id="encoder_iframe" height="500px" width="100%" src="{{LM.Link}}" >
+</iframe>	
+	<div class="form-group" id="dynamic">
+										<label class="col-sm-3 control-label no-padding-top"> Star Rating </label>
+
+										<div class="col-sm-9">
+											<div class="rating inline"></div>
+
+											<div class="hr hr-16 hr-dotted"></div>
+										</div>
+									</div>				
+								
+				
+				</div>
+				<input type="hidden" id="lm" value="{{LM.id}}"/>
+<div class="form-group">
+				<button class="btn btn-white btn-info btn-bold" id="btn">
+												<i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>
+												Finish
+											</button></div>
+			</div>
+                {% endblock content %}
+				
+       {% block  js_block %}
+    {% include "layout/base_js.html" %}
+	<script>
+				$(document).ready(function() {
+  var start = new Date();
+alert(start);
+ $('#btn').click(function() {
+	  var end = new Date();
+	  var time=end - start;
+	  var score = $('.main-content').find('input[name="score"]').val();
+	  var id=$('#lm').val();
+		alert(id);
+	  time=Math.round((time/1000));
+
+	  $.ajax(
+    {
+        type:"GET",
+        url: "add_session",
+        data:{
+                 timespent: time,
+				 score:score,
+				 lm:id,
+				 ajax:'ajax'
+        },
+		 headers:{
+                        'X-CSRFToken':'{{csrf_token}}'
+                             },
+        success: function( data ) 
+        {
+         alert('sucess')
+        }
+     })
+	  
+ });
+  $(window).unload(function() {
+      var end = new Date();
+	  var time=end - start;
+	  alert(time)
+      $.ajax({ 
+        url: "log",
+        data: {'timeSpent': end - start},
+        async: false
+      })
+   });
+});
+				</script>
+	
+    {% endblock js_block  %}  
+				
+				

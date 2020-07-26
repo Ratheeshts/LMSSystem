@@ -1,0 +1,49 @@
+ {% load static %} 
+<script type="text/javascript">
+  var file;
+  $('#excel_file_input').on('change', function(){
+    alert('ok')
+  excel_file = event.target.files;
+   });
+
+
+
+    document.getElementById('excel_uplod_button').addEventListener('click', function () {
+      alert('called');
+    var formData = new FormData();
+    var model_name=$('#model_name').val();
+    formData.append('app_name',$('#app_name').val())
+    formData.append('model_name',model_name)
+    formData.append('excelFile', $('#excel_file_input')[0].files[0]);
+    event.preventDefault(); // prevent form submission and reloading the page.
+    var ajax_url='ajax_excel_file_upload';
+    if(model_name=='learner')
+    {
+     ajax_url= 'learner_excel_upload'
+    }
+    if(model_name=='learning_session')
+    {
+     ajax_url= 'ajax_excel_history_upload'
+    }
+    $.ajax({
+      type: "POST",
+      url:ajax_url ,
+      data:  formData,
+      processData: false,
+      contentType: false,
+      headers:{'X-CSRFToken':'{{csrf_token}}'},
+      dataType: "json",
+
+      success: function (data) {
+
+                                $('#fileToUpload').html('<input type="hidden" name="file_name" value="'+data.file_name+'">')
+                            },
+                            error: function () {
+                                console.log('Upload error');
+                            }
+      
+  });
+});
+
+  
+</script>

@@ -1,0 +1,761 @@
+{% load static %} 
+<html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/logos/leadslogo.png' %}">
+        <link rel="icon" type="image/png" href="{% static 'images/logos/leadslogo.png' %}">
+        <title>Leadstracer</title>
+
+        <!-- STYLESHEETS -->
+        <style type="text/css">
+            [raz-cloak],
+            .raz-cloak {
+                display: none !important;
+            }
+        </style>
+
+        <!-- Icons.css -->
+        <link type="text/css" rel="stylesheet" href="{% static 'icons/raz-icon-font/style.css' %}">
+
+        <!-- Animate.css -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/animate.css/animate.min.css' %}">
+
+        <!-- PNotify -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/pnotify/pnotify.custom.min.css' %}">
+
+        <!-- Nvd3 - D3 Charts -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/nvd3/build/nv.d3.min.css' %}">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/perfect-scrollbar/css/perfect-scrollbar.min.css' %}">
+
+        <!-- raz Html -->
+        <link type="text/css" rel="stylesheet" href="{% static 'vendor/raz-html/raz-html.min.css' %}">
+
+        <!-- Main CSS -->
+        <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+        <!-- / STYLESHEETS -->
+
+        <!-- JAVASCRIPT -->
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+
+        <!-- Mobile Detect -->
+        <script type="text/javascript" src="{% static 'vendor/mobile-detect/mobile-detect.min.js' %}"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script type="text/javascript" src="{% static 'vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js' %}"></script>
+
+        <!-- Popper.js -->
+        <script type="text/javascript" src="{% static 'vendor/popper.js/index.js' %}"></script>
+
+        <!-- Bootstrap -->
+        <script type="text/javascript" src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+
+        <!-- Nvd3 - D3 Charts -->
+        <script type="text/javascript" src="{% static 'vendor/d3/d3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/nvd3/build/nv.d3.min.js' %}"></script>
+
+        <!-- Data tables -->
+        <script type="text/javascript" src="{% static 'vendor/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'vendor/datatables-responsive/js/dataTables.responsive.js' %}"></script>
+
+        <!-- PNotify -->
+        <script type="text/javascript" src="{% static 'vendor/pnotify/pnotify.custom.min.js' %}"></script>
+
+        <!-- raz Html -->
+        <script type="text/javascript" src="{% static 'vendor/raz-html/raz-html.min.js' %}"></script>
+        <!-- Cropper JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/cropper.js' %}"></script>
+        <!-- Main JS -->
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+        <!-- / JAVASCRIPT -->
+    </head>
+
+    <body class="layout layout-vertical layout-left-navigation layout-below-toolbar media-step-xl raz-aside-folded raz-aside-collapsed">
+
+        <div id="wrapper">
+
+            <aside id="aside" class="aside aside-left" data-raz-bar="aside" data-raz-bar-media-step="md" data-raz-bar-position="left">
+         <div class="aside-content-wrapper">
+
+             <div class="aside-content">
+
+                 <div class="aside-toolbar">
+
+                     <div class="logo">
+                         <span class="logo-icon">L</span><span class="logo-text">Leadstracer</span>
+                     </div>
+
+                     <button id="toggle-fold-aside-button" type="button" class="btn btn-icon d-none d-lg-block raz-ripple-ready" data-raz-aside-toggle-fold="">
+                         <i class="icon icon-backburger"></i>
+                     </button>
+
+                 </div>
+
+                 <ul class="nav flex-column custom-scrollbar ps ps--theme_default ps--active-y" id="sidenav" data-children=".nav-item" data-ps-id="eba0da1e-cd3c-5459-203c-45e55fdc2415">
+
+                    <li class="subheader">
+                        <span>puerflames Sales &amp; Services</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active ripple raz-ripple-ready" href="dashboard.html" data-page-url="">
+                            <i class="icon s-5 icon-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="tab" id="heading-ServiceCall-management">
+
+                       <a class="nav-link ripple with-arrow raz-ripple-ready collapsed" data-toggle="collapse" data-target="#collapse-ServiceCall-management" href="#" aria-expanded="false" aria-controls="collapse-ServiceCall-management" data-parent="#sidenav">
+                           <i class="icon s-5 icon-wrench"></i>
+                           <span>Service Call Management</span>
+                       </a>
+
+                       <ul id="collapse-ServiceCall-management" class="collapse" role="tabpanel" aria-labelledby="heading-ServiceCall-management" data-children=".nav-item" style="">
+
+                           <li class="nav-item">
+                            <a class="nav-link ripple raz-ripple-ready" href="servicecall_new.html" data-page-url="#">
+
+                                <span>New Service Call</span>
+                            </a>
+                           </li>
+                           <li class="nav-item">
+                            <a class="nav-link ripple raz-ripple-ready" href="apps-service_scheduler.html" data-page-url="#">
+
+                                <span>All Service Calls</span>
+                            </a>
+                        </li>
+
+
+                       </ul>
+                   </li>
+                   
+                    <li class="nav-item" role="tab" id="heading-Prospect-management">
+
+                        <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-Prospect-management" href="#" aria-expanded="false" aria-controls="collapse-Prospect-management" data-parent="#sidenav">
+                            <i class="icon s-5 icon-contacts"></i>
+                            <span>Customer Management</span>
+                        </a>
+
+                        <ul id="collapse-Prospect-management" class="collapse" role="tabpanel" aria-labelledby="heading-Prospect-management" data-children=".nav-item">
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="customerlist.html" data-page-url="#">
+
+                                    <span>All Customers</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="customer_new.html" data-page-url="#">
+
+                                    <span>New Customer</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                  
+                    <li class="nav-item" role="tab" id="heading-agent-management">
+
+                       <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-agent-management" href="#" aria-expanded="false" aria-controls="collapse-agent-management" data-parent="#sidenav">
+                           <i class="icon s-5 icon-group"></i>
+                           <span>Agent Management</span>
+                       </a>
+
+                       <ul id="collapse-agent-management" class="collapse" role="tabpanel" aria-labelledby="heading-agent-management" data-children=".nav-item">
+
+                           <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="agent_details.html" data-page-url="#">
+
+                                   <span>All Agents</span>
+                               </a>
+                           </li>
+
+                           <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="agent_new.html" data-page-url="#">
+
+                                   <span>New Agent</span>
+                               </a>
+                           </li>
+
+                       </ul>
+                   </li>
+                    
+                   <li class="nav-item" role="tab" id="heading-Dealer-management">
+
+                       <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-Dealer-management" href="#" aria-expanded="false" aria-controls="collapse-Dealer-management" data-parent="#sidenav">
+                           <i class="icon s-5 icon-sitemap"></i>
+                           <span>Dealer Management</span>
+                       </a>
+
+                       <ul id="collapse-Dealer-management" class="collapse" role="tabpanel" aria-labelledby="heading-Dealer-management" data-children=".nav-item">
+
+                           <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="dealer_details.html" data-page-url="#">
+
+                                   <span>All Dealers</span>
+                               </a>
+                           </li>
+
+                           <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="dealer_new.html" data-page-url="#">
+
+                                   <span>New Dealer</span>
+                               </a>
+                           </li>
+
+                       </ul>
+                   </li>
+                   <li class="nav-item">
+                    <a class="nav-link ripple raz-ripple-ready" href="task_app.html" data-page-url="">
+                        <i class="icon s-5 icon-map-marker-radius"></i>
+                        <span>Task  Management</span>
+                    </a>
+                    </li>
+                    <li class="nav-item" role="tab" id="heading-Machine-management">
+
+                        <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-Machine-management" href="#" aria-expanded="false" aria-controls="collapse-Machine-management" data-parent="#sidenav">
+                            <i class="icon s-5 icon-robot"></i>
+                            <span>Product Management</span>
+                        </a>
+
+                        <ul id="collapse-Machine-management" class="collapse" role="tabpanel" aria-labelledby="heading-Machine-management" data-children=".nav-item">
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="products.html" data-page-url="#">
+
+                                    <span>All Products</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="product_new.html" data-page-url="#">
+
+                                    <span>New Product</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="product_categories.html" data-page-url="#">
+
+                                   <span>Product Catogeries</span>
+                               </a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="product_category_new.html" data-page-url="#">
+
+                                   <span>New Product Catogery</span>
+                               </a>
+                           </li>
+
+                        </ul>
+                    </li>
+                    
+                    
+
+               
+                    <li class="nav-item">
+                        <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-Stock-management" href="#" aria-expanded="false" aria-controls="collapse-Stock-management" data-parent="#sidenav">
+                         <i class="icon s-5 icon-file-document"></i>
+                         <span>Stock Management</span>
+                         </a>
+    
+                     <ul id="collapse-Stock-management" class="collapse" role="tabpanel" aria-labelledby="heading-Stock-management" data-children=".nav-item">
+    
+                         <li class="nav-item">
+                             <a class="nav-link ripple raz-ripple-ready" href="stock.html" data-page-url="#">
+    
+                                 <span>Stock Warehouse</span>
+                             </a>
+                         </li>
+    
+                         <li class="nav-item">
+                             <a class="nav-link ripple raz-ripple-ready" href="stock_agent.html" data-page-url="#">
+    
+                                 <span>Stock Agent</span>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link ripple raz-ripple-ready" href="stock_dsc.html" data-page-url="#">
+    
+                                <span>Stock DSC</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ripple raz-ripple-ready" href="po_request.html" data-page-url="#">
+    
+                                <span>PO Requests</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ripple raz-ripple-ready" href="agent_parts_request.html" data-page-url="#">
+    
+                                <span>Agent Requests</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ripple raz-ripple-ready" href="stock_transfer.html" data-page-url="#">
+    
+                                <span>Stock Trasfer</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ripple raz-ripple-ready" href="transaction_history.html" data-page-url="#">
+    
+                                <span>Transaction History</span>
+                            </a>
+                        </li>
+    
+                     </ul>
+                    </li>
+                   
+                   
+                   <li class="nav-item" role="tab" id="heading-Staff-management">
+
+                        <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-Staff-management" href="#" aria-expanded="false" aria-controls="collapse-Staff-management" data-parent="#sidenav">
+                            <i class="icon s-5 icon-people"></i>
+                            <span>Staff Management</span>
+                        </a>
+
+                        <ul id="collapse-Staff-management" class="collapse" role="tabpanel" aria-labelledby="heading-Staff-management" data-children=".nav-item">
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="staff_all.html" data-page-url="#">
+
+                                    <span>All Staffs</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="staff_new.html" data-page-url="#">
+
+                                    <span>New Staff</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="staff_group_new.html" data-page-url="#">
+
+                                    <span>New Staff Group</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="staff_rolls.html" data-page-url="#">
+
+                                    <span>Staff Rolls &amp; Permissions</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="staff_rolls.html" data-page-url="#">
+
+                                   <span>All Dipartments</span>
+                               </a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link ripple raz-ripple-ready" href="staff_rolls.html" data-page-url="#">
+
+                                   <span>New Dipartment</span>
+                               </a>
+                           </li>
+
+
+                        </ul>
+                    </li>
+                  
+                    <li class="nav-item">
+                       <a class="nav-link ripple raz-ripple-ready" href="location_app.html" data-page-url="">
+                           <i class="icon s-5 icon-map-marker-radius"></i>
+                           <span>Location Management</span>
+                       </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link ripple raz-ripple-ready" href="staff_profile.html" data-page-url="">
+                            <i class="icon s-5 icon-account"></i>
+                            <span>My Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="tab" id="heading-Reports-management">
+
+                        <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-Reports-management" href="#" aria-expanded="false" aria-controls="collapse-Reports-management" data-parent="#sidenav">
+                            <i class="icon s-5 icon-note-multiple"></i>
+                            <span>Finance Management</span>
+                        </a>
+
+                        <ul id="collapse-Reports-management" class="collapse" role="tabpanel" aria-labelledby="heading-Reports-management" data-children=".nav-item">
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="agent_claim_request.html" data-page-url="#">
+
+                                    <span>Agent Claim Requests</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="#" data-page-url="staff_claim_request.html">
+
+                                    <span>Staff TA Requests</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="#" data-page-url="#">
+
+                                    <span>Collection History</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item" role="tab" id="heading-Reports-management">
+
+                        <a class="nav-link ripple with-arrow collapsed raz-ripple-ready" data-toggle="collapse" data-target="#collapse-Reports-management" href="#" aria-expanded="false" aria-controls="collapse-Reports-management" data-parent="#sidenav">
+                            <i class="icon s-5 icon-note-multiple"></i>
+                            <span>Reports Management</span>
+                        </a>
+
+                        <ul id="collapse-Reports-management" class="collapse" role="tabpanel" aria-labelledby="heading-Reports-management" data-children=".nav-item">
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="#" data-page-url="#">
+
+                                    <span>Child one</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link ripple raz-ripple-ready" href="#" data-page-url="#">
+
+                                    <span>child two</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link ripple raz-ripple-ready" href="" data-page-url="">
+                            <i class="icon s-5 icon-settings"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+
+                <div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 0px; height: 540px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 400px;"></div></div></ul>
+             </div>
+         </div>
+     </aside>
+
+            <div class="content-wrapper">
+
+                <nav id="toolbar" class="fixed-top bg-white">
+                    
+                    <div class="row no-gutters align-items-center flex-nowrap">
+                        
+                        <div class="col">
+
+                            <div class="row no-gutters align-items-center flex-nowrap">
+
+                                <button type="button" class="toggle-aside-button btn btn-icon d-block d-lg-none raz-ripple-ready" data-raz-bar-toggle="aside">
+                                    <i class="icon icon-menu"></i>
+                                </button>
+
+                                <div class="toolbar-separator d-block d-lg-none"></div>
+                                
+                                <div class="shortcuts-wrapper row no-gutters align-items-center px-0 px-sm-2">
+
+                                    <div class="shortcuts row no-gutters align-items-center d-none d-md-flex">
+
+                                        <a href="location_app.html" class="shortcut-button btn btn-icon mx-1 raz-ripple-ready">
+                                            <i class="icon icon-map-marker-radius"></i>
+                                        </a>
+                                        <a href="tasks_app.html" class="shortcut-button btn btn-icon mx-1 raz-ripple-ready">
+                                            <i class="icon icon-message-bulleted"></i>
+                                        </a>
+                                        <a href="settings.html" class="shortcut-button btn btn-icon mx-1 raz-ripple-ready">
+                                            <i class="icon icon-settings"></i>
+                                        </a>
+
+                                        <a href="staff_profile.html" class="shortcut-button btn btn-icon mx-1 raz-ripple-ready">
+                                            <i class="icon icon-account-box"></i>
+                                        </a>
+
+
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="toolbar-separator"></div>
+                        
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+
+                            <div class="row no-gutters align-items-center justify-content-end">
+
+                                <div class="user-menu-button dropdown">
+
+                                    <div class="dropdown-toggle ripple row align-items-center no-gutters px-2 px-sm-4 raz-ripple-ready" role="button" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="avatar-wrapper">
+                                            <img class="avatar" src="{% static 'images/avatars/profile.jpg' %}">
+                                            <i class="status text-green icon-checkbox-marked-circle s-4"></i>
+                                        </div>
+                                        <span class="username mx-3 d-none d-md-block">Riyas Abdul SAlam</span>
+                                    </div>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
+
+                                        <a class="dropdown-item raz-ripple-ready" href="staff_profile.html">
+                                            <div class="row no-gutters align-items-center flex-nowrap">
+                                                <i class="icon-account"></i>
+                                                <span class="px-3">My Profile</span>
+                                            </div>
+                                        </a>
+
+                                        <div class="dropdown-divider"></div>
+
+                                        <a class="dropdown-item raz-ripple-ready" href="#">
+                                            <div class="row no-gutters align-items-center flex-nowrap">
+                                                <i class="icon-logout"></i>
+                                                <span class="px-3">Logout</span>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="toolbar-separator"></div>
+
+                                <button type="button" class="search-button btn btn-icon raz-ripple-ready">
+                                    <i class="icon icon-magnify"></i>
+                                </button>
+                                
+                                <div class="toolbar-separator"></div>
+
+                                <button type="button" class="quick-panel-button btn btn-icon raz-ripple-ready" data-raz-bar-toggle="quick-panel-sidebar">
+                                    <i class="icon icon-format-list-bulleted"></i>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="content">
+                    
+                </div>
+
+            </div>
+
+            <div class="quick-panel-sidebar custom-scrollbar raz-bar position-right ps ps--theme_default raz-bar-closed" data-raz-bar="quick-panel-sidebar" data-raz-bar-position="right" data-ps-id="e968ded1-b2fc-6012-e2a4-4d678be55d93">
+           <div class="list-group">
+
+               <div class="list-group-item subheader">TODAY</div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="text-muted">
+
+                       <div class="h1"> Monday</div>
+
+                       <div class="h2 row no-gutters align-items-start">
+                           <span> 12</span>
+                           <span class="h6">th</span>
+                           <span> Jun</span>
+                       </div>
+
+                   </div>
+               </div>
+           </div>
+
+           <div class="divider"></div>
+
+           <div class="list-group">
+
+               <div class="list-group-item subheader">Todays Activities</div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Group Meeting</h3>
+
+                       <p>In 32 Minutes, Room 1B</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Meeting with Client name</h3>
+
+                       <p>11:00 PM</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Meeting with David</h3>
+
+                       <p>At Location, 17:30 PM</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Q&amp;A Session</h3>
+
+                       <p>20:30 PM</p>
+                   </div>
+
+               </div>
+
+           </div>
+
+           <div class="divider"></div>
+
+           <div class="list-group">
+
+               <div class="list-group-item subheader">Notifications</div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Best songs to listen while working</h3>
+
+                       <p>At Location, 17:30 PM</p>
+                   </div>
+
+               </div>
+
+               <div class="list-group-item two-line">
+
+                   <div class="list-item-content">
+
+                       <h3>Useful subreddits</h3>
+
+                       <p>At Location, 17:30 PM</p>
+                   </div>
+
+               </div>
+
+           </div>
+
+           <div class="divider"></div>
+
+       
+       <div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+       <!--modal image cropper-->
+       <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="img-container">
+                    <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default raz-ripple-ready" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary raz-ripple-ready" id="crop">Crop</button>
+                </div>
+              </div>
+            </div>
+          </div>
+       <!--modal-->
+        </div>
+
+    
+    <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var avatar = document.getElementById('avatar');
+      var image = document.getElementById('image');
+      var input = document.getElementById('input');
+      var $progress = $('.progress');
+      var $progressBar = $('.progress-bar');
+      var $alert = $('.alert');
+      var $modal = $('#modal');
+      var cropper;
+
+      $('[data-toggle="tooltip"]').tooltip();
+
+      input.addEventListener('change', function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+          input.value = '';
+          image.src = url;
+          $alert.hide();
+          $modal.modal('show');
+        };
+        var reader;
+        var file;
+        var url;
+
+        if (files && files.length > 0) {
+          file = files[0];
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+      });
+
+      $modal.on('shown.bs.modal', function () {
+        cropper = new Cropper(image, {
+          aspectRatio: 1,
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+
+      document.getElementById('crop').addEventListener('click', function () {
+        var initialAvatarURL;
+        var canvas;
+
+        $modal.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+            width: 160,
+            height: 160,
+          });
+
+          initialAvatarURL = avatar.src;
+          avatar.src = canvas.toDataURL();
+          $progress.show();
+          $alert.removeClass('alert-success alert-warning');
+         
+        }
+      });
+    });
+  </script>
+</body></html>

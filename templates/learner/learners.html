@@ -1,0 +1,12 @@
+{% extends 'layout/base_layout.html' %}
+{% load static %} 
+{% block content %}
+   {% include "learner/learner_list.html" %}
+
+
+  {% endblock content %}
+    {% block  js_block %}
+    {% include "layout/base_js.html" %}
+                   {% include "upload_excel/upload_excel_js.html" %}
+
+    {% endblock js_block  %}  
